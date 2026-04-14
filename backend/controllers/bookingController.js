@@ -579,7 +579,11 @@ const downloadReceiptPDF = async (req, res, next) => {
           as: 'show',
           include: [{ model: Movie, as: 'movie' }]
         },
-        { model: Seat, as: 'seats' },
+        {
+          model: Seat,
+          as: 'seats',
+          through: { attributes: [] }  // Don't include BookingSeat attributes
+        },
         { model: Payment, as: 'payment' }
       ]
     });
