@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — MovieBook</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <style>
+    /* Admin-specific overrides */
+    .admin-nav-btn:hover {
+      background: var(--surface) !important;
+      color: var(--text-1) !important;
+    }
+
+    /* Wide table layout helpers */
+    #admin-main {
+      overflow-y: auto;
+      height: calc(100vh - 72px);
+    }
+
+    @media (max-width: 768px) {
+      #admin-content > div {
+        grid-template-columns: 1fr !important;
+      }
+      #admin-content > div > div:first-child {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border);
+        padding: 8px 0 !important;
+      }
+      .admin-nav-btn {
+        border-left: none !important;
+        border-bottom: 3px solid transparent !important;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body data-page="admin">
+
+  <nav class="navbar" id="navbar"></nav>
+  <div id="toast-container"></div>
+
+  <div style="margin-top:72px;" id="admin-content">
+    <div class="loading-page" style="padding:80px 0;">
+      <div class="spinner"></div>
+      <p style="color:var(--text-3);margin-top:12px;">Loading admin panel…</p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

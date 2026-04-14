@@ -1,0 +1,4 @@
+Please save the QR code image from the attachment and rename it to: qr-upi.png
+Place it in this folder: frontend/assets/
+
+Then update the code to reference it.

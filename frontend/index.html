@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieBook — Book Cinema Tickets Online</title>
+  <meta name="description" content="Book movie tickets online. Latest movies, best seats, instant confirmation.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+</head>
+<body data-page="home">
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar"></nav>
+
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <!-- Hero -->
+  <section class="hero page">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-pattern"></div>
+    <div class="container hero-content">
+      <div class="hero-eyebrow">Now Showing</div>
+      <h1 class="hero-title">
+        Book the <em>Perfect</em><br>Cinema Experience
+      </h1>
+      <p class="hero-desc">
+        Latest blockbusters, best seats, instant confirmation.<br>
+        Your night out starts here.
+      </p>
+      <div class="hero-search">
+        <input id="hero-search" type="text" placeholder="Search movies, genres, languages…">
+        <button id="hero-search-btn">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Movies Section -->
+  <section class="section">
+    <div class="container">
+      <div class="flex justify-between items-center mb-8" style="flex-wrap:wrap;gap:12px;">
+        <div>
+          <h2 class="section-title">Movies</h2>
+          <p class="section-subtitle">Showing in theatres near you</p>
+        </div>
+      </div>
+
+      <!-- Filter bar -->
+      <div id="filter-bar" class="filter-bar">
+        <div class="skeleton" style="height:36px;width:60px;border-radius:20px;"></div>
+        <div class="skeleton" style="height:36px;width:80px;border-radius:20px;"></div>
+        <div class="skeleton" style="height:36px;width:70px;border-radius:20px;"></div>
+      </div>
+
+      <!-- Movies grid -->
+      <div id="movies-grid" class="movies-grid">
+        <!-- Skeleton loaders -->
+        ${Array(8).fill(0).map(()=>`
+          <div class="movie-card" style="pointer-events:none;">
+            <div class="skeleton" style="aspect-ratio:2/3;width:100%;border-radius:0;"></div>
+            <div style="padding:16px;">
+              <div class="skeleton" style="height:18px;width:80%;margin-bottom:8px;"></div>
+              <div class="skeleton" style="height:14px;width:50%;"></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--bg-2);border-top:1px solid var(--border);padding:40px 0;margin-top:40px;">
+    <div class="container">
+      <div class="flex justify-between items-center" style="flex-wrap:wrap;gap:16px;">
+        <div>
+          <div class="nav-logo" style="margin-bottom:8px;">Movie<span>Book</span><span class="dot">.</span></div>
+          <p style="color:var(--text-3);font-size:0.83rem;">Your premium cinema booking experience.</p>
+        </div>
+        <p style="color:var(--text-3);font-size:0.82rem;">© 2026 MovieBook · All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

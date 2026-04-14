@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Seats — MovieBook</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <style>
+    /* Responsive seat layout column collapse */
+    @media (max-width: 900px) {
+      #booking-content .container > div {
+        grid-template-columns: 1fr !important;
+      }
+      .booking-summary {
+        position: static !important;
+      }
+    }
+  </style>
+</head>
+<body data-page="booking">
+
+  <nav class="navbar" id="navbar"></nav>
+  <div id="toast-container"></div>
+
+  <!-- Breadcrumb -->
+  <div style="background:var(--bg-2);border-bottom:1px solid var(--border);padding:12px 0;margin-top:72px;">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--text-3);">
+        <a href="index.html" class="breadcrumb-link">Movies</a>
+        <span>›</span>
+        <span id="breadcrumb-movie" style="color:var(--text-2);">Movie</span>
+        <span>›</span>
+        <span style="color:var(--text-1);">Select Seats</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps indicator -->
+  <div style="background:var(--bg-2);border-bottom:1px solid var(--border);padding:16px 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:center;gap:0;max-width:500px;margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:white;">1</div>
+          <span style="font-size:0.82rem;font-weight:600;">Select Seats</span>
+        </div>
+        <div style="flex:1;height:2px;background:var(--border);margin:0 16px;max-width:80px;"></div>
+        <div style="display:flex;align-items:center;gap:8px;opacity:0.4;">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;">2</div>
+          <span style="font-size:0.82rem;">Payment</span>
+        </div>
+        <div style="flex:1;height:2px;background:var(--border);margin:0 16px;max-width:80px;"></div>
+        <div style="display:flex;align-items:center;gap:8px;opacity:0.4;">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;">3</div>
+          <span style="font-size:0.82rem;">Confirm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="booking-content">
+    <div class="loading-page" style="padding:80px 0;">
+      <div class="spinner"></div>
+      <p style="color:var(--text-3);margin-top:12px;">Loading seat map…</p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Inject movie title into breadcrumb once show data is loaded
+    const _origInit = window.initBookingPage;
+  </script>
+</body>
+</html>
