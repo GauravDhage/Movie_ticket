@@ -570,7 +570,7 @@ const downloadReceiptPDF = async (req, res, next) => {
     // Fetch booking with all details
     const booking = await Booking.findOne({
       where: {
-        [Op.or]: [{ id }, { bookingId: id }],
+        bookingId: id,  // Search by bookingId (the string ID like 'MB-2026-CVADCW'), not numeric id
         userId
       },
       include: [
