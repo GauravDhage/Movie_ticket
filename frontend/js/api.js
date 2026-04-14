@@ -1,7 +1,7 @@
 // js/api.js
 // Centralised API client — all fetch calls go through here
 
-const API_BASE = 'http://127.0.0.1:5000/api';
+const API_BASE = 'https://movie-ticket-jgp8.onrender.com/api';
 
 // ─── Auth helpers ────────────────────────────────────────
 const getToken = () => localStorage.getItem('mb_token');
