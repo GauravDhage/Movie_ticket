@@ -17,6 +17,8 @@
     "mysql2": "^3.3.3",
     "nodemailer": "^6.9.3",
     "pdfkit": "^0.13.0",
+    "pg": "^8.20.0",
+    "pg-hstore": "^2.3.4",
     "razorpay": "^2.9.6",
     "sequelize": "^6.31.1",
     "uuid": "^9.0.0"

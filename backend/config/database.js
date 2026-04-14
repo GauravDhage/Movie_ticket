@@ -1,18 +1,18 @@
 // config/database.js
-// Sequelize ORM configuration for MySQL connection
+// Sequelize ORM configuration for PostgreSQL connection (Render deployment)
 
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Create Sequelize instance with MySQL connection
+// Create Sequelize instance with PostgreSQL connection
 const sequelize = new Sequelize(
-  process.env.DB_NAME || 'movie_booking_db',
-  process.env.DB_USER || 'root',
+  process.env.DB_NAME || 'moviebook_db_calk',
+  process.env.DB_USER || 'postgres',
   process.env.DB_PASSWORD || '',
   {
     host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 3306,
-    dialect: 'mysql',
+    port: process.env.DB_PORT || 5432,
+    dialect: 'postgres',
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     pool: {
       max: 10,       // Maximum number of connections
@@ -32,7 +32,7 @@ const sequelize = new Sequelize(
 const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log('✅ MySQL Database connected successfully');
+    console.log('✅ PostgreSQL Database connected successfully');
   } catch (error) {
     console.error('❌ Database connection failed:', error.message);
     process.exit(1); // Exit process if DB fails
