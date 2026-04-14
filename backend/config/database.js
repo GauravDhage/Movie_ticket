@@ -20,6 +20,13 @@ const sequelize = new Sequelize(
       acquire: 30000, // Max time (ms) to wait for connection
       idle: 10000    // Time (ms) before idle connection is released
     },
+    // Enable SSL/TLS for production (Render requires SSL)
+    dialectOptions: {
+      ssl: process.env.NODE_ENV === 'production' ? {
+        require: true,
+        rejectUnauthorized: false
+      } : false
+    },
     define: {
       timestamps: true,        // Add createdAt/updatedAt automatically
       underscored: false,      // Use camelCase column names
